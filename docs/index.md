@@ -1,0 +1,1 @@
+Otázky k předmětu Hardware Software Codesign

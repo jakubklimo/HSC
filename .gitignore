@@ -1,1 +1,21 @@
-book
+# Python virtual environment
+.venv/
+env/
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# MkDocs build directory
+site/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode / JetBrains IDE
+.vscode/
+.idea/
+*.iml
