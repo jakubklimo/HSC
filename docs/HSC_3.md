@@ -30,8 +30,8 @@ Funkce je logický blok kódu, který jednou napíšeme a poté ho můžeme libo
 
 Funkce může vracet nějakou hodnotu. Jakou vrací hodnotu je definované v deklaraci funkce, buď je tam nějaký datový typ jako int, char, atd. nebo je tam void a funkce žádnou hodnotu nevrací. Návratovou hodnotu můžeme z funkce chtít proto aby jsme s ní dále v kódu mofli pracovat. Příklad funkce s návratovou hodnotou a bez ní :
 
-![title](pics/hsc3_1.png)
-![title](pics/hsc3_2.png)
+![title](../pics/hsc3_1.png)
+![title](../pics/hsc3_2.png)
 
 ### Zásobník
 
