@@ -2,7 +2,17 @@ site_name: HSC
 theme:
   name: material
 
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 nav:
   - Úvod: index.md
+  - 1. Jazyk C - Jednoduché datové typy, reprezentace signed a unsigned, dvojkový doplněk, floating point: HSC_1.md
+  - 2. Jazyk C - Pole, vícerozměrná pole, ukazatele, generický ukazatel, řetězce: HSC_2.md
   - 3. Jazyk C - Operátory, funkce, návratové hodnoty, zásobník, ukazatele na funkce, standartní knihovny, direktivy: HSC_3.md
   - 9. Sériové sběrnice - přehled a principy (SPI, IIC, UART): HSC_9.md
