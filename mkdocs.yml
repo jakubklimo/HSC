@@ -15,5 +15,6 @@ nav:
   - 1. Jazyk C - Jednoduché datové typy, reprezentace signed a unsigned, dvojkový doplněk, floating point: HSC_1.md
   - 2. Jazyk C - Pole, vícerozměrná pole, ukazatele, generický ukazatel, řetězce: HSC_2.md
   - 3. Jazyk C - Operátory, funkce, návratové hodnoty, zásobník, ukazatele na funkce, standartní knihovny, direktivy: HSC_3.md
+  - 4. Embedded systémy, základní charakteristika, typické součásti embedded systémů, ES v ASIC vs FPGA: HSC_4.md
   - 6. Zynq PS: HSC_6.md
   - 9. Sériové sběrnice - přehled a principy (SPI, IIC, UART): HSC_9.md
