@@ -16,5 +16,6 @@ nav:
   - 2. Jazyk C - Pole, vícerozměrná pole, ukazatele, generický ukazatel, řetězce: HSC_2.md
   - 3. Jazyk C - Operátory, funkce, návratové hodnoty, zásobník, ukazatele na funkce, standartní knihovny, direktivy: HSC_3.md
   - 4. Embedded systémy, základní charakteristika, typické součásti embedded systémů, ES v ASIC vs FPGA: HSC_4.md
+  - 5. Architektonické koncepty počítače, ISA procesoru s příklady (stack, ACC, GPR), instrukční cyklus, RISC vs CISC, současné trendy CPU: HSC_5.md
   - 6. Zynq PS: HSC_6.md
   - 9. Sériové sběrnice - přehled a principy (SPI, IIC, UART): HSC_9.md
