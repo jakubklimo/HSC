@@ -18,5 +18,6 @@ nav:
   - 4. Embedded systémy, základní charakteristika, typické součásti embedded systémů, ES v ASIC vs FPGA: HSC_4.md
   - 5. Architektonické koncepty počítače, ISA procesoru s příklady (stack, ACC, GPR), instrukční cyklus, RISC vs CISC, současné trendy CPU: HSC_5.md
   - 6. Zynq PS: HSC_6.md
+  - 7. Microblaze – charakteristika a architektura CPU, možnosti konfigurace, možnosti cache: HSC_7.md
   - 9. Sériové sběrnice - přehled a principy (SPI, IIC, UART): HSC_9.md
   - 18. FPGA - Struktura a přehled zdrojů SLICE, vytváření multiplexorů a režimy LUT: HSC_18.md
