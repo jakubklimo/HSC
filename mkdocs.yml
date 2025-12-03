@@ -19,3 +19,4 @@ nav:
   - 5. Architektonické koncepty počítače, ISA procesoru s příklady (stack, ACC, GPR), instrukční cyklus, RISC vs CISC, současné trendy CPU: HSC_5.md
   - 6. Zynq PS: HSC_6.md
   - 9. Sériové sběrnice - přehled a principy (SPI, IIC, UART): HSC_9.md
+  - 18. FPGA - Struktura a přehled zdrojů SLICE, vytváření multiplexorů a režimy LUT: HSC_18.md
