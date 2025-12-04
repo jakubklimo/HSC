@@ -20,4 +20,5 @@ nav:
   - 6. Zynq PS: HSC_6.md
   - 7. Microblaze – charakteristika a architektura CPU, možnosti konfigurace, možnosti cache: HSC_7.md
   - 9. Sériové sběrnice - přehled a principy (SPI, IIC, UART): HSC_9.md
+  - 16. Jazyk VHDL - knihovny, entita – porty a generické parametry, architektura – deklarační část, tělo, přehled paralelních příkazů, proces a citlivostní seznam: HSC_16.md
   - 18. FPGA - Struktura a přehled zdrojů SLICE, vytváření multiplexorů a režimy LUT: HSC_18.md
