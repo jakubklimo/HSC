@@ -20,5 +20,10 @@ nav:
   - 6. Zynq PS: HSC_6.md
   - 7. Microblaze – charakteristika a architektura CPU, možnosti konfigurace, možnosti cache: HSC_7.md
   - 9. Sériové sběrnice - přehled a principy (SPI, IIC, UART): HSC_9.md
+  - 10. Způsoby obsluhy periferií, polling, interrupt, základní struktura ovladače s jednoduchým příkladem: HSC_10.md
   - 16. Jazyk VHDL - knihovny, entita – porty a generické parametry, architektura – deklarační část, tělo, přehled paralelních příkazů, proces a citlivostní seznam: HSC_16.md
+  - 17. VHDL - základní datové typy, knihovní typy, VHDL pro syntézu - způsoby efektivního popisu paměťových, aritmetických a řídících obvodů: HSC_17.md
   - 18. FPGA - Struktura a přehled zdrojů SLICE, vytváření multiplexorů a režimy LUT: HSC_18.md
+  - 19. FPGA - Aritmetické obvody – realizace sčítaček, násobičky, specializované obvody, podpora datových typů: HSC_19.md
+  - 20. Model Composer – Výhody a nevýhody oproti popisu HDL/HLS, bloky Gateway in, základní aritmetické bloky, podpora AXI stream: HSC_20.md
+  - 21. HLS – výhody a nevýhody oproti popisu HDL/Model Composer, popis flow, zpracování základních prvků jazyka C do HW struktur, Interface AXI4: HSC_21.md
