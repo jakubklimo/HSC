@@ -99,7 +99,7 @@ Všechny kroky nutné k vykonání instrukce:
 - Interní Frekvence = 1 / zpoždění na nejdelší kombinační cestě  
 - Externí frekvence = interní frekvence / počet stupňů
 
-## RISC – Complex instruction set computer
+## RISC – Reduced instruction set computer
 
 - Optimalizovaná sada instrukcí – jednoduché, stejně dlouhé – lze provádět efektivně  
 - Komplexní isntrukce ponechány kompilátoru  
