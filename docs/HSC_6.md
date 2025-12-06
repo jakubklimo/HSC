@@ -48,6 +48,7 @@ Paměťový systém Zynqu je hierarchický a zahrnuje vše od rychlých cache a�
 **je malá, velmi rychlá paměť**, která leží přímo u procesoru a slouží k urychlení přístupu k často používaným datům nebo instrukcím.
 
 **Hierarchie Cache a Koherence**:
+
 - **L1 Cache (Privátní)**: Každé jádro má vlastní **32 KB pro instrukce** a **32 KB pro data**. Funguje na principu Harvard (oddělená data a kód).
 - **L2 Cache (Sdílená)**: Větší **512 KB** paměť společná pro obě jádra.
 - **SCU (Snoop Control Unit)**: Řadič, který zajišťuje **cache koherenci** (aby obě jádra viděla stejná data) a propojuje jádra s L2 cache a pamětí.
