@@ -1,6 +1,6 @@
 # Zynq PS
 
-**Zynq-7000 APSoC** je hybridní čip kombinující procesorový systém a programovatelnou logiku FPGA. PS je v čipu Zynq Hard Macro. To znamená, že je to fyzicky vyrobený procesor, který je neměnný a funguje nezávisle na tom, zda je naprogramovaná FPGA část.
+**Zynq-7000 APSoC** je hybridní čip kombinující procesorový systém a programovatelnou logiku FPGA (SoC Zynq). PS (Processing System) je v čipu Zynq Hard Macro. To znamená, že je to fyzicky vyrobený procesor, který je neměnný a funguje nezávisle na tom, zda je naprogramovaná FPGA část.
 
 ## Charakteristika a architektura
 
