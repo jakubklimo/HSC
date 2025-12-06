@@ -19,8 +19,10 @@ nav:
   - 5. Architektonické koncepty počítače, ISA procesoru s příklady (stack, ACC, GPR), instrukční cyklus, RISC vs CISC, současné trendy CPU: HSC_5.md
   - 6. Zynq PS: HSC_6.md
   - 7. Microblaze – charakteristika a architektura CPU, možnosti konfigurace, možnosti cache: HSC_7.md
+  - 8. Základní IP jádra s návazností na HW FPGA, obvody hodin, čítače/časovače, GPIO: HSC_8.md
   - 9. Sériové sběrnice - přehled a principy (SPI, IIC, UART): HSC_9.md
   - 10. Způsoby obsluhy periferií, polling, interrupt, základní struktura ovladače s jednoduchým příkladem: HSC_10.md
+  - 11. Klasifikace sběrnic v embedded systémech, pojmy master, slave, arbiter, transakce, burst, teoretická a reálná bandwidth, topologie: HSC_11.md
   - 16. Jazyk VHDL - knihovny, entita – porty a generické parametry, architektura – deklarační část, tělo, přehled paralelních příkazů, proces a citlivostní seznam: HSC_16.md
   - 17. VHDL - základní datové typy, knihovní typy, VHDL pro syntézu - způsoby efektivního popisu paměťových, aritmetických a řídících obvodů: HSC_17.md
   - 18. FPGA - Struktura a přehled zdrojů SLICE, vytváření multiplexorů a režimy LUT: HSC_18.md
