@@ -28,7 +28,7 @@ Z pohledu programátora - seznam dostupných mechanismů pro programování. (Vl
 ISA neřeší, jak procesor funguje uvnitř, ale co umí navenek – (důležité pro kompatibilitu)  
 Procesory, co mají stejnou instrukční sadu, vykonávají program stejným způsobem
 
-ISA definuje:
+### ISA definuje:
 - Instrukční sadu: Seznam příkazů, které procesor umí (např. SEČTI, PŘESUŇ).
 - Kódování instrukcí
 - Nakládání s operandy – adresování (přímé – pomalé,RAM)(nepřímé – rychlé     registry přímo u procesoru)
