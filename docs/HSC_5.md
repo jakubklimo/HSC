@@ -51,31 +51,31 @@ ISA definuje:
 
 ### ISA – Zásobníkově orientovaná (stack)
 
-Používá zásobník(LIFO) – př. JAVA virtual machine(SW), Picojava
+- Používá zásobník(LIFO) – př. JAVA virtual machine(SW), Picojava
 - Zdroj a cíl všech operandů
 
-Je to něco mezi, horší než architektura s registry (dnešní PC), ale lepší než architektura se střadačem (staré čipy)  
-Instrukce jsou bezadresové – stačí říct, kolik hodnot z vrchu zásobníku chceš  
-Vysoká hustota kódu – efektivní pro mat operace  
+- Je to něco mezi, horší než architektura s registry (dnešní PC), ale lepší než architektura se střadačem (staré čipy)  
+- Instrukce jsou bezadresové – stačí říct, kolik hodnot z vrchu zásobníku chceš  
+- Vysoká hustota kódu – efektivní pro mat operace  
 - Př ADD 4 (sečti poslední 4 hodnoty stacku a výsledek ulož na vrchol stacku)
 
-Nemožnost náhodného přístupu – hodnota může být hluboko a čísle ve vyšších patrech je nutné někam odložit  
-Pomalé – zásobník bývá uložení v paměti (RAM, CACHE), což je pomalejší než registry
+- Nemožnost náhodného přístupu – hodnota může být hluboko a čísle ve vyšších patrech je nutné někam odložit  
+- Pomalé – zásobník bývá uložení v paměti (RAM, CACHE), což je pomalejší než registry
 
 ### ISA – General purpose register (GPR)
 
-Používá spousty registrů - x86/x64 ARM
+- Používá spousty registrů - x86/x64 ARM
 - Zdroj a cíl všech operandů
 
-Často obsahuje pipeline  
-**Pipelining** - zřetězené zpracování či překrývání strojových instrukcí je způsob zvýšení výkonu procesoru Základní myšlenkou je rozdělení zpracování jedné instrukce mezi různé části procesoru a tím i umožnění zpracovávat více instrukcí najednou.
+- Často obsahuje pipeline  
+- **Pipelining** - zřetězené zpracování či překrývání strojových instrukcí je způsob zvýšení výkonu procesoru Základní myšlenkou je rozdělení zpracování jedné instrukce mezi různé části procesoru a tím i umožnění zpracovávat více instrukcí najednou.
 
-Mnoho módů adresace – každý registr může být zdrojem i cílem operace
+- Mnoho módů adresace – každý registr může být zdrojem i cílem operace
 - Snižuje nároky na propustnost paměťového systému
 - Snadná paralelizovatelnost
     - **Superskalární architektury** – více ALU
     - **Single instruction multiple data** (SIMD) sdílená paměť – Vektorové počítače - Urychlují práci tím, že vykonávají instrukce na řadě hodnot najednou (vektoru), obvykle obsahují jednu řídící jednotku a více výkonných, každá výkonná pracuje na svých datech.  
-    Př. MMX(multimedia extension),SSE(streaming simd extension), Neon
+    - Př. MMX(multimedia extension),SSE(streaming simd extension), Neon
     - **Very long instruction word** - typ architektury procesoru navržený pro provádění více operací v jediném instrukčním cyklu.
 
 ## Instrukční cyklus
@@ -90,25 +90,25 @@ Všechny kroky nutné k vykonání instrukce
 
 ## CISC – Complex instruction set computer
 
-Velký počet instrukcí, malý počet vnitřních registrů  
-Mikrokód umožňuje naprogramovat jakoukoliv instrukci  
-Složitý řadič instrukcí – stavový automat často relizovaný na ROM paměti  
-Instrukce jsou různě dlouhé – různý počet operandů, různá velikost v programové paměti, různá doba vykonání  
-Instrukční sada obsahuje i velmi složité instrukce (násobení, dělení apod.), většina operací se provádí s akumulátorem ->pomalejší zpracování instrukcí Efektivní pro komplexní instrukce, neefektivní pro jednoduché  
-Interní Frekvence = 1 / zpoždění na nejdelší kombinační cestě  
-Externí frekvence = interní frekvence / počet stupňů
+- Velký počet instrukcí, malý počet vnitřních registrů  
+- Mikrokód umožňuje naprogramovat jakoukoliv instrukci  
+- Složitý řadič instrukcí – stavový automat často relizovaný na ROM paměti  
+- Instrukce jsou různě dlouhé – různý počet operandů, různá velikost v programové paměti, různá doba vykonání  
+- Instrukční sada obsahuje i velmi složité instrukce (násobení, dělení apod.), většina operací se provádí s akumulátorem ->pomalejší zpracování instrukcí Efektivní pro komplexní instrukce, neefektivní pro jednoduché  
+- Interní Frekvence = 1 / zpoždění na nejdelší kombinační cestě  
+- Externí frekvence = interní frekvence / počet stupňů
 
 ## RISC – Complex instruction set computer
 
-Optimalizovaná sada instrukcí – jednoduché, stejně dlouhé – lze provádět efektivně  
-Komplexní isntrukce ponechány kompilátoru  
-Délka provádění trvá vždy jeden cyklus  
-Interní frekvence = externí frekvence = 1 / max(zpoždění stupně)  
-Řadič instrukcí je distribuován mezi jednotlivé stupně  
-Pracuje se s registry – odpadá práce s akumulátorem  
+- Optimalizovaná sada instrukcí – jednoduché, stejně dlouhé – lze provádět efektivně  
+- Komplexní isntrukce ponechány kompilátoru  
+- Délka provádění trvá vždy jeden cyklus  
+- Interní frekvence = externí frekvence = 1 / max(zpoždění stupně)  
+- Řadič instrukcí je distribuován mezi jednotlivé stupně  
+- Pracuje se s registry – odpadá práce s akumulátorem  
 
-Reálně : pro sečtení dvou čísel je musím nejdříve načíst – mezi tím STALL (čekání)
+- Reálně : pro sečtení dvou čísel je musím nejdříve načíst – mezi tím STALL (čekání)
 
-STALL musí být odstraněn
-- CACHE – rychlá paměť v místě potřeby
-- Superskalarita – přidání více ALU – paralelní zpracování
+- STALL musí být odstraněn
+    - CACHE – rychlá paměť v místě potřeby
+    - Superskalarita – přidání více ALU – paralelní zpracování
