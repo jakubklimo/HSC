@@ -8,7 +8,7 @@ Srdcem systému je **Application Processing Unit (APU)**, která obsahuje:
 
 - **Jádra**: Dual-core ARM Cortex-A9 MPCore.
 - **Architektura**: ARMv7 (32-bit instrukce, podpora Thumb-2).
-- **Výkon**: Až 1 GHz (typ. 667 MHz), cca 2.5 DMIPS/MHz na jádro.
+- **Výkon**: Až 1 GHz (typ. 667 MHz),
 - **Vlastnosti vykonávání**:
     - **Superskalární**: Procesor dokáže načíst a spustit více instrukcí (až 2) v jednom hodinovém taktu, což zvyšuje rychlost zpracování.
     - **Out-of-Order execution**: CPU může měnit pořadí instrukcí. Pokud jedna instrukce čeká na pomalou paměť, CPU „předběhne“ a vykoná jinou instrukci, která je připravená. Má proměnnou délku pipeline.
