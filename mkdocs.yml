@@ -25,6 +25,7 @@ nav:
   - 11. Klasifikace sběrnic v embedded systémech, pojmy master, slave, arbiter, transakce, burst, teoretická a reálná bandwidth, topologie: HSC_11.md
   - 12.  AMBA AXI - AXI stream – princip rozhraní, transakce, backpressure, přenos z více zdrojů: HSC_12.md
   - 13. AMBA AXI - AXI MM (lite) – parametry, kanály, transakce čtení a zápisu, rozdíl mezi AXI4 a AXI4-lite: HSC_13.md
+  - 15. DMA řadič, scatter gather, ovladače, koherence dat, přehled dostupných IP: HSC_15.md
   - 16. Jazyk VHDL - knihovny, entita – porty a generické parametry, architektura – deklarační část, tělo, přehled paralelních příkazů, proces a citlivostní seznam: HSC_16.md
   - 17. VHDL - základní datové typy, knihovní typy, VHDL pro syntézu - způsoby efektivního popisu paměťových, aritmetických a řídících obvodů: HSC_17.md
   - 18. FPGA - Struktura a přehled zdrojů SLICE, vytváření multiplexorů a režimy LUT: HSC_18.md
