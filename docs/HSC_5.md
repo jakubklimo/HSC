@@ -113,3 +113,6 @@ Všechny kroky nutné k vykonání instrukce:
 - STALL musí být odstraněn
     - CACHE – rychlá paměť v místě potřeby
     - Superskalarita – přidání více ALU – paralelní zpracování
+    - Kompilátor může přetřídit instrukce
+    - V době čekání lze zpracovat další instrukci – Out od order
+
