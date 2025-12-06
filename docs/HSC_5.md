@@ -80,7 +80,8 @@ Procesory, co mají stejnou instrukční sadu, vykonávají program stejným zp�
 
 ## Instrukční cyklus
 
-#### Všechny kroky nutné k vykonání instrukce:
+Všechny kroky nutné k vykonání instrukce:
+
 - Načtení instrukce z paměti (dle čítače programu) FETCH
 - Dekodování instrukce (příprava ovládání datové cesty procesoru)  DECODE
 - Načtení operandů – nastavení čtení registrů   LOAD
