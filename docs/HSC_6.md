@@ -31,7 +31,7 @@ Každé jádro má vlastní koprocesory pro specializované výpočty, které by
 Paměťový systém Zynqu je hierarchický a zahrnuje vše od rychlých cache až po řadiče externích pamětí.
 
 - **MMU (Memory Management Unit)**: Hardwarová podpora pro **virtuální paměť**. Překládá virtuální adresy na fyzické, což je nezbytné pro běh operačních systémů jako Linux
-- **Low Memory (< 1GB)**: Zde se nachází **OCM (On-Chip Memory, rychlá SRAM)** a hlavní operační paměť **DDR**.
+- **Low Memory (< 1GB)**: Zde se nachází **OCM (On-Chip Memory, rychlá SRAM - pro rychlý start (boot) a kritický kód.)** a hlavní operační paměť **DDR**.
 - **PL Adresy (M_AXI_GP)(<1GB,3GB>)**: Dva obrovské bloky adres vyhrazené pro komunikaci s **FPGA**. 
     - Když procesor zapíše data na tyto adresy, signál projde přes můstky (AXI GP porty) přímo do vašeho vlastního hardwaru v FPGA. Takto ovládáte své IP bloky.
 - **<3GB,4GB>**
