@@ -39,13 +39,22 @@ ISA definuje:
     - Interupt(priorita,počet)
 - Registry: Malá, super-rychlá paměť přímo v procesoru pro okamžité výpočty.
 - Adresování paměti: Jakým způsobem procesor čte a zapisuje data do RAM.
+    
+
+### ISA – Střadačově orientovaná (akumulátor) acc
+- Nejstarší a nejjednodušší – mechanická kalkulačka, 4004, 8051
+- Procesor má jeden speciální registr – Střadač(akumulátor), další nepoužívá
+    - Ten je zdrojem a cílem většiny instrukcí
+    - Kvůli tomu, že je registr jeden, se musí lést hodně do paměti
+    - Jeden vstup do výpočtu je ve střadači, výsledek pak tuto hodnotu přepíše
+- Instrukce jsou velmi krátké – není třeba říct, kam se má výsledek uložit – do střadače
 
 ### ISA – Zásobníkově orientovaná (stack)
 
 Používá zásobník(LIFO) – př. JAVA virtual machine(SW), Picojava
 - Zdroj a cíl všech operandů
 
-Je to mezi vedle architektur se registry (dnešní PC) a střadačem (staré čipy).  
+Je to něco mezi, horší než architektura s registry (dnešní PC), ale lepší než architektura se střadačem (staré čipy)  
 Instrukce jsou bezadresové – stačí říct, kolik hodnot z vrchu zásobníku chceš  
 Vysoká hustota kódu – efektivní pro mat operace  
 - Př ADD 4 (sečti poslední 4 hodnoty stacku a výsledek ulož na vrchol stacku)
