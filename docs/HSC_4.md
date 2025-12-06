@@ -21,18 +21,18 @@ Omezené prostředky (výkon, paměť)  - cena
 
 - Procesor
 - Vnitřní služby a komunikace
-  - Porty procesoru, čítače/časovače 
-  - Systémové služby (Interrupt, Watchdog)
-  - Interní „sběrnice“
+    - Porty procesoru, čítače/časovače 
+    - Systémové služby (Interrupt, Watchdog)
+    - Interní „sběrnice“
 - Paměti
-  - Interní SRAM,FLASH
-  - Řadiče externí pamětí SRAM/(LP)DDR(2,3)
+    - Interní SRAM,FLASH
+    - Řadiče externí pamětí SRAM/(LP)DDR(2,3)
 - Externí komunikace 
-  – AD /DA převodníky, USB, UART, Ethernet
+    – AD /DA převodníky, USB, UART, Ethernet
 - Dedikovaný HW
-  - Float procesory, grafika, zvuk,speciální
+    - Float procesory, grafika, zvuk,speciální
 - SW
-  - Založeno na FW, OS
+    - Založeno na FW, OS
 
 ![Obrázek](pics/hsc4_1.png)
 
