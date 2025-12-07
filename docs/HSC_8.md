@@ -5,6 +5,7 @@
 Je to analogie softwarové knihovny pro hardware. Představuje předpřipravený blok logiky (např. řadič paměti, procesor, komunikační rozhraní), který vkládáme do návrhu v FPGA jako „součástku“.
 
 AMD dodává společně s Vivado řadu jader zdarma
+
 - Infrastruktura SoC – hodiny, sběrnice, CPU, mailbox, mutex
 - Základní komunikace – GPIO, IIC, SPI, CAN
 - Rychlé komunikace - ETH, USB, PCIE,…
@@ -52,6 +53,7 @@ Drží reset aktivní, dokud nejsou všechny podmínky splněny, aby nedošlo k 
 ## Čítače/časovače
 
 Jedná se o univerzální programovatelný blok pro měření času nebo generování událostí.
+
 - Konfigurace HW
     - Až dva 32bit čítače nebo kaskádní 64bit režim
     - Polarita generovaných signálů; Polarita spouští
@@ -67,6 +69,7 @@ Jedná se o univerzální programovatelný blok pro měření času nebo generov
 Základní rozhraní pro ovládání pinů. Každý pin může fungovat jako vstup nebo výstup, což vyžaduje speciální hardwarové řešení pro obousměrnou komunikaci.
 
 Jednosměrná komunikace
+
 - Primitivní schéma
     - výstupní buffer živí drát
     - vstupní buffer obdobně živí vnitřek obvodu
@@ -74,6 +77,7 @@ Jednosměrná komunikace
 - použitelné pro některé sériové komunikace: SPI, UART
 
 Třístavový budič
+
 - je řešení jednosměrné komunikace, realizuje mechanizmus odpojení budiče pomocí tranzistoru tranzistoru na vstupu EN
 - Je základem GPIO v FPGA
 - Má logicky tři stavy:
@@ -81,6 +85,7 @@ Třístavový budič
 - To umožňuje **obousměrnou komunikaci po jednom vodiči** (v časovém multiplexu) – obě strany se střídají v tom, kdo mluví a kdo poslouchá. K řízení směru je nutný **handshake**
 
 AXI GPIO
+
 - Přímé ovládání vstupů a výstupů, základem je třístavový budič
 - HW volby:
     - Počet kanálů, Povolení přerušení, Šířka kanálů, Směr (IO, I, O)
