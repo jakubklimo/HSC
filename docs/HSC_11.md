@@ -3,6 +3,7 @@
 ## Sběrnice 
 
 Prostředek pro doručení informací
+
 - Paralelní – zvlášť kanál pro adresu, data, řízení – dnes více rozšíření (AMBA, Avalon)
 - Sériové – adresa, data, řízení – jeden kanál
 - Klasifikace periferií – věcí, co mají přístup na sběrnici
