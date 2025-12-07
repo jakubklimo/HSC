@@ -29,7 +29,7 @@ V FPGA ke správě a generování hodinových signálů slouží IP jádro Clock
     $$ F_{VCO} = F_{CLKIN} \times \frac{M}{D} $$
     $$ F_{OUT} = F_{CLKIN} \times \frac{M}{D \times O} $$
 
-    - Kde je násobitel (ve zpětné vazbě), je vstupní dělička a je výstupní dělička.
+    - Kde M je násobitel (ve zpětné vazbě),D je vstupní dělička a O je výstupní dělička.
 
 - Vlastnosti:
     - Syntéza frekvence, fázový posuv
