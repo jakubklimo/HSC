@@ -18,6 +18,7 @@
 ## IP jádra
 
 Druhy AXI4 IP jáder:
+
 - AXI4-DMA: vyžaduje, aby CPU pozastavilo, zapsalo do konfiguračních registrů (zdrojová adresa, délka, řízení) pomocí AXI-Lite a poté spustilo
     - Konfigurovatelný MM2S a S2MM převodník
         - 2xDatamover – kanály čtení a zápisu
