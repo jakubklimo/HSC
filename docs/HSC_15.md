@@ -19,8 +19,10 @@ Ovladače jsou softwarové komponenty, které propojují operační systém s DM
 Koherence dat řeší problém, že procesor pracuje s cache pamětí (rychlou vyrovnávací pamětí), zatímco DMA zapisuje přímo do hlavní paměti (DDR RAM). Pokud procesor má v cache starší kopii dat, může dojít k nesouladu. Aby byla data konzistentní a načetla se tedy aktuální data z paměti, je nutné před spuštěním DMA přenosu cache vyprázdnit (flush) a po dokončení přenosu ji prohlásit za neplatnou, tedy takovou, které se už nedá věřit, protože může obsahovat zastaralá nebo nekonzistentní data. Procesor je pak při příštím čtení znovu načte z hlavní paměti, kde už jsou aktuální hodnoty. Některé moderní architektury mají hardwarovou podporu koherence, takže se o to stará systém automaticky. Správná koherence je zásadní pro spolehlivý provoz.
 
 ## Přehled dostupných IP
+
 AXI Interconnect: Soubor IP jader infrastruktury sloužících k vytvoření sběrnic v SoC (System on Chip):
-- **AXI Crossbar** je režim IP jádra AXI Interconnect, který umožňuje neblokující propojení mezi více AXI master a více AXI slave rozhraními. Každá transakce je směrována podle adresy na odpovídající slave a ke stejnému slave může v daný okamžik mluvit jen jeden master. Současně však mohou probíhat transakce k různým slave bez vzájemného blokování. Jedná se tedy o inteligentní přepínač (switch) neboli dopravní uzel pro sběrnici AXI s optimalizací zaměřenou na využitou plochu čipu nebo na jeho rychlost. 
+
+- **AXI Crossbar** je režim IP jádra AXI Interconnect, který umožňuje neblokující propojení mezi více AXI master a více AXI slave rozhraními. Každá transakce je směrována podle adresy na odpovídající slave a ke stejnému slave může v daný okamžik mluvit jen jeden master. Současně však mohou probíhat transakce k různým slave bez vzájemného blokování. Jedná se tedy o inteligentní přepínač (switch) neboli dopravní uzel pro sběrnici AXI s optimalizací zaměřenou na využitou plochu čipu nebo na jeho rychlost.
 - **AXI Data Width Converter** slouží jako překladač (adaptér) mezi dvěma komponentami, které mají různou šířku datové sběrnice. Zajišťuje, aby se spolu mohly bavit například procesor (32-bit) a paměť (64-bit), aniž byste museli psát složitou logiku pro spojování nebo dělení dat.
 - **AXI Clock Converter** slouží k překlenutí rozdílných hodinových domén mezi dvěma AXI rozhraními. Používá se tehdy, když master a slave běží na odlišných frekvencích nebo mají asynchronní hodinové signály. Converter zajišťuje, že se data přenesou bezpečně, bez hazardů a porušení protokolu AXI.
 - **AXI Data FIFO** je vyrovnávací paměť (buffer) navržená speciálně pro protokol AXI4. Její hlavní funkcí je dočasně ukládat data a řídicí signály, které proudí mezi komponentou Master a komponentou Slave, když jedna ze stran není připravena data okamžitě přijmout.
@@ -32,6 +34,7 @@ AXI Interconnect: Soubor IP jader infrastruktury sloužících k vytvoření sb�
 **AXI Peripheral** je uživatelsky definovaný nebo předpřipravený blok logiky, který komunikuje s ostatními částmi systému přes standardizovanou sběrnici AXI. Slouží jako rozhraní mezi procesorem a periferní logikou.
 
 **AXI DMA** umožňuje vysokorychlostní přenos dat mezi pamětí (AXI4 Memory Mapped) a periferiemi pracujícími se streamovanými daty (AXI4-Stream), bez nutnosti zatěžovat procesor.
+
 - MM2S (Memory-Mapped to Stream): čte blok dat z paměti a posílá je do streamového rozhraní.
 - S2MM (Stream to Memory-Mapped): přijímá streamovaná data a ukládá je do paměti.
 
