@@ -1,1 +1,21 @@
+# AMBA AXI: parametry, základní topologie, IP jádra, prostředky připojení periferií
 
+## Parametry
+- Šířka až 1024 bitů 
+- Burst přenosy do 256 slov
+- FIXED , INCR, WRAP 
+- Adresní šířka do 64 slov
+- rychlá
+
+## Základní topologie
+- Tady trochu stručně už je to probraný ve 12 a 13
+- Typ spojení PTP: MASTER-SLAVE
+- 5 kanálů: Čtení (Adresní a datový kanál), Zápis (Adresní, datový a potvrzovací kanál)
+- AXI Interconnect neboli Crossbar (propojení více Masterů s více Slaves)
+- Handshake mechanismus (Ready a Valid)
+- Oddělené cesty pro čtení a zápis
+
+## IP jádra
+
+Druhy AXI4 IP jáder:
+**AXI4-DMA (Direct Memory Access)
