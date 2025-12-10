@@ -1,0 +1,1290 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../HSC_18/">
+      
+      
+        <link rel="next" href="../HSC_20/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>19. FPGA - Aritmetické obvody – realizace sčítaček, násobičky, specializované obvody, podpora datových typů - HSC</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fpga-aritmeticke-obvody-realizace-scitacek-nasobicky-specializovane-obvody-podpora-datovych-typu" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="HSC" class="md-header__button md-logo" aria-label="HSC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HSC
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              19. FPGA - Aritmetické obvody – realizace sčítaček, násobičky, specializované obvody, podpora datových typů
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="HSC" class="md-nav__button md-logo" aria-label="HSC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HSC
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Jazyk C - Jednoduché datové typy, reprezentace signed a unsigned, dvojkový doplněk, floating point
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Jazyk C - Pole, vícerozměrná pole, ukazatele, generický ukazatel, řetězce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Jazyk C - Operátory, funkce, návratové hodnoty, zásobník, ukazatele na funkce, standartní knihovny, direktivy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Embedded systémy, základní charakteristika, typické součásti embedded systémů, ES v ASIC vs FPGA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Architektonické koncepty počítače, ISA procesoru s příklady (stack, ACC, GPR), instrukční cyklus, RISC vs CISC, současné trendy CPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Zynq PS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Microblaze – charakteristika a architektura CPU, možnosti konfigurace, možnosti cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Základní IP jádra s návazností na HW FPGA, obvody hodin, čítače/časovače, GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Sériové sběrnice - přehled a principy (SPI, IIC, UART)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Způsoby obsluhy periferií, polling, interrupt, základní struktura ovladače s jednoduchým příkladem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Klasifikace sběrnic v embedded systémech, pojmy master, slave, arbiter, transakce, burst, teoretická a reálná bandwidth, topologie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12.  AMBA AXI - AXI stream – princip rozhraní, transakce, backpressure, přenos z více zdrojů
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. AMBA AXI - AXI MM (lite) – parametry, kanály, transakce čtení a zápisu, rozdíl mezi AXI4 a AXI4-lite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. AMBA AXI - parametry, základní topologie, IP jádra, prostředky připojení periferií
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. DMA řadič, scatter gather, ovladače, koherence dat, přehled dostupných IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Jazyk VHDL - knihovny, entita – porty a generické parametry, architektura – deklarační část, tělo, přehled paralelních příkazů, proces a citlivostní seznam
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. VHDL - základní datové typy, knihovní typy, VHDL pro syntézu - způsoby efektivního popisu paměťových, aritmetických a řídících obvodů
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. FPGA - Struktura a přehled zdrojů SLICE, vytváření multiplexorů a režimy LUT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. FPGA - Aritmetické obvody – realizace sčítaček, násobičky, specializované obvody, podpora datových typů
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. FPGA - Aritmetické obvody – realizace sčítaček, násobičky, specializované obvody, podpora datových typů
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#realizace-scitacek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Realizace sčítaček
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realizace-nasobicek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Realizace násobiček
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Realizace násobiček">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#softwarova-realizace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Softwarová realizace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardwarova-realizace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardwarová realizace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specializovane-obvody" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Specializované obvody
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specializované obvody">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dsp-blok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DSP blok:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pametove-bloky-block-ram-a-ultraram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paměťové bloky (Block RAM a UltraRAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hodinove-rozvody" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hodinové rozvody
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podpora-datovych-typu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Podpora datových typů
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Model Composer – Výhody a nevýhody oproti popisu HDL/HLS, bloky Gateway in, základní aritmetické bloky, podpora AXI stream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HSC_21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. HLS – výhody a nevýhody oproti popisu HDL/Model Composer, popis flow, zpracování základních prvků jazyka C do HW struktur, Interface AXI4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#realizace-scitacek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Realizace sčítaček
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realizace-nasobicek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Realizace násobiček
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Realizace násobiček">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#softwarova-realizace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Softwarová realizace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardwarova-realizace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardwarová realizace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specializovane-obvody" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Specializované obvody
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Specializované obvody">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dsp-blok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DSP blok:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pametove-bloky-block-ram-a-ultraram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paměťové bloky (Block RAM a UltraRAM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hodinove-rozvody" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hodinové rozvody
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podpora-datovych-typu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Podpora datových typů
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fpga-aritmeticke-obvody-realizace-scitacek-nasobicky-specializovane-obvody-podpora-datovych-typu">FPGA - Aritmetické obvody – realizace sčítaček, násobičky, specializované obvody, podpora datových typů<a class="headerlink" href="#fpga-aritmeticke-obvody-realizace-scitacek-nasobicky-specializovane-obvody-podpora-datovych-typu" title="Permanent link">&para;</a></h1>
+<p>V prostředí FPGA se aritmetické operace realizují dvěma základními způsoby:</p>
+<ul>
+<li><strong>V obecné logice</strong>: Využití LUT (Look-Up Tables) a propojovací matice.</li>
+<li><strong>V dedikovaných blocích</strong>: Využití specializovaných DSP (Digital Signal Processing) bloků. Jsou to hotové, v křemíku vyleptané obvody, které nejdou přeprogramovat na nic jiného, ale svou práci dělají dokonale. Použití DSP bloku šetří stovky LUT a umožňuje dosahovat frekvencí v řádech stovek MHz, kterých by běžná logika nikdy nedosáhla.</li>
+</ul>
+<h2 id="realizace-scitacek">Realizace sčítaček<a class="headerlink" href="#realizace-scitacek" title="Permanent link">&para;</a></h2>
+<p>Sčítání je nejzákladnější operací. V FPGA se sčítačky optimalizují s důrazem na minimalizaci zpoždění vznikajícího šířením přenosu (carry propagation).
+Poloviční sčítačka (half-adder) realizuje součet dvou bitů bez vstupního přenosu Cin, zatímco úplná sčítačka (full-adder) zahrnuje i vstupní přenos. Úplná sčítačka tedy sčítá tři bity: vstup A, vstup B a vstupní přenos Cin. Výstupem je součet S a výstupní přenos Cout. 
+Pokud bychom zapojili několik úplných sčítaček za sebou pouze pomocí LUT, vznikl by Ripple Carry Adder. Zpoždění by rostlo lineárně s šířkou sběrnice N, protože každý bit musí čekat na Cout z předchozího bitu (přenos bitu z nejnižšího řádu do nejvyššího). To je pro FPGA neefektivní. Proto se přistupuje k optimalizaci pomocí Carry Chains (Carry logic). Tato logika pro přenos využívá speciální hardwarovou cestu (např. CARRY4 nebo CARRY8) vertikálně umístěnou přímo vedle LUT v každém logickém bloku SLICE. Obchází tak pomalou propojovací matici a díky tomu umožňuje realizovat velmi rychlé sčítačky i pro velký počet bitů (např. 64-bit adder) s minimálním zpožděním.
+Princip sčítání funguje tak, že součet je realizován pomocí operace XOR (0+0=0, 0+1=1, 1+0=1, 1+1=0), přičemž ale FPGA nenastavuje hradlo XOR. Místo toho se do LUT nahraje pravdivostní tabulka pro XOR. Když přijdou vstupy A a B, LUT se podívá na odpovídající adresu v paměti a vrátí výsledek, což je rychlé a nenastává žádný problém. Kdyby se ale přenos počítal také v LUTu a posílal se do dalšího LUTu přes běžnou propojovací síť, bylo by to pomalé kvůli zpoždění na vodičích. Proto má každý logický blok vedle sebe Carry Logic:</p>
+<ul>
+<li><strong>Hardwarovou cestu</strong>: Je to fyzický vodič, který vede svisle přes celý čip, přímo od jedné buňky ke druhé, bez průchodu obecnou maticí.</li>
+<li><strong>Multiplexory</strong>: Fungování je založeno na následující logice:<ul>
+<li>Pokud A ≠ B (tj. 1+0 nebo 0+1): Přenos se propaguje, což je situace, kdy sčítací obvod na dané pozici sám o sobě nový přenos nevytvoří, ale pokud mu nějaký přenos přijde z nižšího řádu, tak ho pošle dál do vyššího řádu.</li>
+<li>Pokud A = 0 a B = 0:  Přenos se zastavuje. Výsledkem součtu je 0 a žádný další přenos se nepředává. Ale v případě, že dorazí 1 v přenosu z nižšího řádu, tato 1 se přičte k výsledku, který se změní z 0 na 1 a tak se přijatá 1 z přenosu spotřebuje a kvůli tomu nedochází k předávání přenosu do vyššího řádu.</li>
+<li>Pokud A = 1 a B = 1: Přenos se generuje. Sčítačka vytvoří nový přenos bez ohledu na to, co se děje v předchozím řádu.</li>
+</ul>
+</li>
+</ul>
+<p>Samotný přenos (carry bit) pak neprochází skrz pomalé LUT, ale posílá se vyhrazenou vertikální cestou (Carry Chain) skrz celý sloupec SLICE bloků. Díky tomu jsou i široké sčítačky v FPGA extrémně rychlé a zabírají minimum logických prostředků.</p>
+<h2 id="realizace-nasobicek">Realizace násobiček<a class="headerlink" href="#realizace-nasobicek" title="Permanent link">&para;</a></h2>
+<p>Násobení je mnohem složitější operace než sčítání. V FPGA existují dva hlavní způsoby, jak násobičku vytvořit: Softwarová realizace (pomocí obecné logiky LUT) a Hardwarová realizace (pomocí dedikovaných DSP bloků).</p>
+<h3 id="softwarova-realizace">Softwarová realizace<a class="headerlink" href="#softwarova-realizace" title="Permanent link">&para;</a></h3>
+<p>Pokud potřebujeme vynásobit malá čísla (např. 4x4 bity) nebo FPGA nemá volné DSP bloky, syntezátor postaví násobičku z LUT tabulek a sčítaček. Funguje to na principu klasického násobení pod sebou, jen binárně (Shift &amp; Add):</p>
+<ul>
+<li>Vytvoření dílčích součinů: Každý bit násobitele se logicky vynásobí (operace AND) s celým násobencem.<ul>
+<li>Pokud je bit 1, opíše se číslo.</li>
+<li>Pokud je bit 0, jsou to samé nuly.</li>
+</ul>
+</li>
+<li>Posun (Shift): Každý další řádek se posune o jeden bit doleva.</li>
+<li>Sečtení (Add): Všechny tyto řádky se musí sečíst.</li>
+</ul>
+<p>Důvodem proč se takto počítají pouze velmi malá čísla a nebo se takto provádí pouze násobení konstantou je ten, že dochází ke kvadratickému růstu náročnosti, kde pro N-bitové číslo je potřeba N2 logických prvků. Dalším důvodem je, že takovéto sčítání je velmi pomalé a u 32-bitového násobení vznikne 32 řádků, které se musí sečíst, přičemž i s rychlými Carry Chains vzniká obrovský strom sčítaček, který má velké zpoždění. </p>
+<h3 id="hardwarova-realizace">Hardwarová realizace<a class="headerlink" href="#hardwarova-realizace" title="Permanent link">&para;</a></h3>
+<p>Moderní FPGA mají v křemíku vyleptané hotové obvody tzv. DSP bloky. Ty nepočítají metodou "Shift &amp; Add" jako v LUTu, ale používají pokročilé architektury a násobení binárních čísel provádějí přímo. Tyto bloky jsou řádově rychlejší a energeticky úspornější než řešení v LUT. Obvykle mají fixní šířku (např. 25x18 bitů), ale lze je kaskádně spojovat pro násobení větších čísel.</p>
+<h2 id="specializovane-obvody">Specializované obvody<a class="headerlink" href="#specializovane-obvody" title="Permanent link">&para;</a></h2>
+<p><strong>Mezi specializované obvody lze zařadit</strong>: </p>
+<ul>
+<li>DSP bloky</li>
+<li>Paměťové bloky</li>
+<li>Hodinové rozvody</li>
+</ul>
+<h3 id="dsp-blok">DSP blok:<a class="headerlink" href="#dsp-blok" title="Permanent link">&para;</a></h3>
+<p>Výše zmíněné hardwarové násobičky jsou dnes téměř vždy součástí komplexnějších jednotek zvaných DSP bloky (např. DSP48E). Tyto bloky jsou složeny z násobiček, sčítaček a registrů a navrženy pro operace typu MAC (Multiply-Accumulate), které jsou klíčové pro digitální zpracování signálu (filtry FIR, IIR, FFT). </p>
+<p><img alt="Obrázek" src="../pics/hsc19_1.png" /></p>
+<p>DSP blok DSP48E nabízí tyto základní funkce:</p>
+<ul>
+<li>Násobičku 25×18 bitů s plnou podporou MAC operací až se 48bitovým akumulátorem vhodným pro konstrukci IIR filtrů.</li>
+<li>Dynamický výběr operací v ALU jednotce (součet, rozdíl, logické operace) – kaskádní řazení DSP bloků s podporou přenosu výsledků až do hloubky 96 bitů.</li>
+<li>SIMD (Single Instruction Multiple Data) operace 4×12 bitů nebo 2×24 bitů v jednom DSP48E bloku a taktu.</li>
+<li>48bitovou logickou jednotku, barrel shifter.</li>
+<li>Rychlý 48bitový čítač, detekce vzorů.</li>
+<li>Zaokrouhlování výsledků, saturace, přetečení a podtečení.</li>
+<li>Podpora multiplexování dat v čase.</li>
+</ul>
+<h3 id="pametove-bloky-block-ram-a-ultraram">Paměťové bloky (Block RAM a UltraRAM)<a class="headerlink" href="#pametove-bloky-block-ram-a-ultraram" title="Permanent link">&para;</a></h3>
+<p>Zatímco malé paměti se dají tvořit z LUT (tzv. distribuovaná paměť RAM), pro ukládání větších objemů dat (řádově Kbity až Mbity) obsahují FPGA specializované paměťové bloky:</p>
+<ul>
+<li><strong>Block RAM (BRAM)</strong>: Základní paměťový prvek s granularitou 36Kbit, vnitřně dělena na 9bit bloky. Je to True Dual-Port paměť, což znamená, že umožňuje nezávislý čtení/zápis ze dvou portů zároveň na různých frekvencích (hodinových doménách). Lze ji konfigurovat jako RAM, ROM nebo FIFO. Často obsahuje vestavěnou logiku pro detekci a opravu chyb a lze je kaskádovitě propojovat, což umožňuje využít kapacitu od desítek po stovky Mbitů. </li>
+<li><strong>UltraRAM (URAM)</strong>: V novějších architekturách (UltraScale a dále) se objevují tyto větší bloky s vyšší kapacitu na jeden sloupec zdrojů a granularitou 4K x 72 bit (288Kbitů), které jsou plně synchronní, ale pouze pro jedny hodiny a nejsou plně dvouportové (neumí ReadFirst, WriteFrist režimy).</li>
+</ul>
+<h3 id="hodinove-rozvody">Hodinové rozvody<a class="headerlink" href="#hodinove-rozvody" title="Permanent link">&para;</a></h3>
+<p>V FPGA nejsou obvody pro správu hodin rozházeny náhodně. Jsou sdruženy do CMT (Clock Management Tile), které se dělí na:</p>
+<ul>
+<li><strong>MMCM (Mixed-Mode Clock Manager)</strong> – Výkonnější generátor hodin, určený pro složitou syntézu a fázování.</li>
+<li><strong>PLL (Phase-Locked Loop)</strong> – Jednodušší generátor hodin, optimalizovaná pro čistotu signálu.</li>
+</ul>
+<p>Základem obou je analogový obvod uzavřené smyčky, který dokáže synchronizovat vnitřní oscilátor s vnějším signálem. PLL dorovnávají zpoždění, dělí nebo násobí frekvenci, mění střídu, zajišťují fázové posuny. Snaha je o nulový skluz hran hodinového signálu v celém FPGA. Základem fázového závěsu je fázový komparátor a napětím řízený oscilátor doplněný děličkami (resp. čítači).</p>
+<p><img alt="Obrázek" src="../pics/hsc19_2.png" /></p>
+<p>Vygenerovat hodiny nestačí, musí se také rozvést k tisícům klopných obvodů tak, aby k nim dorazily ve stejný čas. K tomu slouží speciální buffery:</p>
+<p><strong>BUFG (Global Clock Buffer):</strong><br />
+Nejdůležitější buffer. Řídí globální hodinový strom (Global Clock Tree). Signál z BUFG dosáhne na jakýkoliv klopný obvod v celém FPGA s minimálním rozdílem zpoždění. Počet je omezený (např. 32 na čip).</p>
+<p><strong>BUFR (Regional Clock Buffer):</strong><br />
+Rozvádí hodiny jen v rámci jedné části čipu (Clock Region). Je mnohem kratší a má menší zpoždění a spotřebu než BUFG. Ideální pro sběrnice, které vstupují na několika pinech vedle sebe.
+<strong>BUFIO (I/O Buffer):</strong><br />
+Speciální buffer, který nevede do logiky, ale pouze do I/O pinů. Slouží pro zachycení extrémně rychlých dat na vstupu dříve, než se signál rozhodí průchodem vnitřku čipu.</p>
+<p>Další důležitou komponentou je BUFGMUX (Global Clock Buffer Multiplexer), která má hodinové vstupy, výběrové vstupy a hodinový výstup. Jejím úkolem je pustit do globálního hodinového stromu (BUFG) vstupní hodinový signál vybraný na základě hodnoty výběrového signálu.</p>
+<h2 id="podpora-datovych-typu">Podpora datových typů<a class="headerlink" href="#podpora-datovych-typu" title="Permanent link">&para;</a></h2>
+<p><strong>Boolean</strong>: Jedná se o nejjednodušší datový typ, který reprezentuje logickou 1 (True) nebo 0 (False). Používá se pro řídicí logiku (např. podmínky if, enable signály, reset). Nastavením se určí, který typ se syntézou vygeneruje:</p>
+<ul>
+<li><strong>bit</strong>: Starší typ ve VHDL, nabývá pouze hodnot 0 nebo 1.</li>
+<li><strong>std_logic</strong>: Průmyslový standard. Kromě 0 a 1 umí reprezentovat i další stavy, které jsou pro hardware kritické, jako je 'Z' (vysoká impedance – odpojeno) nebo 'X' (neznámá hodnota). </li>
+</ul>
+<p><strong>Fixed (Pevná řádová čárka)</strong>: Fixed-point čísla umožňují počítat s desetinnými čísly, ale využívají k tomu celočíselnou (integer) aritmetiku, což je mnohem rychlejší a úspornější než čísla s plovoucí desetinnou čárkou.</p>
+<ul>
+<li>UFix (Unsigned): Pouze kladná čísla.</li>
+<li>Fix (Signed): Kladná i záporná čísla (obvykle v doplňkovém kódu).</li>
+</ul>
+<p>Zápis vypadá následovně Fix_WL_FL, kde WL je délka slova (Word Length) a FL je délka desetinné části (Fraction Length). Příklad Fix_16_14: Celé číslo má 16 bitů. Z toho 14 bitů je vyhrazeno pro desetinnou část. Zbývají 2 bity pro celou část (včetně znaménka, je-li to signed), to znamená, že je potřeba vědět, v jakém rozsahu se signály pohybují a zvolit správný počet bitů. Na rozdíl od float, kde se desetinná čárka posouvá, zde je pevná.</p>
+<ul>
+<li><strong>Kvantizace</strong> – Co se stane s bity vpravo. Když výsledek operace má více desetinných míst, než kolik můžeme uložit (např. násobení), musíme se zbavit přebytečných bitů na konci (LSB) buď klasickým matematickým zaokrouhlením (round), kde se přičte se polovina nejméně významného bitu a ořízne se. Což je přesnější, statistická chyba je nulová, ale musí se přičíst polovina LSB, což vyžaduje sčítačku, zabírá to místo na čipu a trvá to déle. Další možností je ořez (truncate), což je prosté odseknutí přebytečných bitů, nejsou k tomu potřeba žádná logická hradla navíc, ale vnáší to větší chybu (vždy se zaokrouhluje směrem dolů u Unsigned).</li>
+<li><strong>Přeplnění (Overflow)</strong> – Co se stane s bity vlevo. Když výsledek operace přesáhne maximální hodnotu, kterou datový typ dokáže zobrazit (např. součet dvou velkých čísel). Může nastat saturace (saturate), kdy se hodnota zasekne na maximu nebo minimu. Například rozsah je 0 až 255 a z výpočtu vyjde 300, tak výsledek bude 255. Nebo přetečení, kdy hodnota přeteče a začne znovu od nuly. Například rozsah je 0 až 255 a z výpočtu vyjde 256, tak výsledek bude 0.</li>
+</ul>
+<p><strong>Float (Plovoucí řádová čárka)</strong>: Klasická reprezentace reálných čísel s plovoucí desetinnou čárkou, například float (single) nebo double. Obecně jsou operace s těmito datovými typy velmi náročné na zdroje a plochu na čipu a mají také vyšší latenci (trvají déle) než operace s Fixed-point, proto se pro jejich výpočty využívají DSP bloky.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
