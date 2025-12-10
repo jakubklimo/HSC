@@ -7,6 +7,7 @@ Určujeme, co se má s daty stát (C/C++), ne to, jak se mají přesouvat (HDL)
 ## Co HLS provádí
 
 Převod C/C++ funkcí do zadrátovaných funkcí (v rámci toho dělá i věci níže) 
+
 - Plánování operací 
     - Aut. Plánování operací na více taktů (některé jsou i vícetaktové) 
     - Rychlé FPGA (malé clk, ale hodně HW) – více operací za jeden takt
@@ -24,6 +25,7 @@ Převod C/C++ funkcí do zadrátovaných funkcí (v rámci toho dělá i věci n
         - Loop latency – veškerý počet cyklů smyčky
 
 **Zpracování kodu**
+
 - Hlavní funkce
     - Argumenty této funkce vytvoří I/O porty 
     - Direktivy umožnují namísto portu HW protokol (AXIMM,AXIS,BRAM)
