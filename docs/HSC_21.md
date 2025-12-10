@@ -58,6 +58,7 @@ Pomocí direktiv kompilátoru lze argumenty funkce upravit na interface
 - Axis(stream), s_axilite(konfigurační registry),m_axi(obsluha DMA – direct memory access controler)
 
 Možnost použít AXI 4 Burst – akce, která pošle více dat na seřazené adresy
+
 - Zavolá se memcpy(), dále to probíhá ve zřetezeném for cyklu
 - Požadavky, aby se to dalo použít
     - Smyčky musí být pipeline
